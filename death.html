@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Certificate Application Form</title>
+    <link rel="stylesheet" href="styledeath.css">
+</head>
+<body>
+    <div class="container">
+        <h2>DEATH CERTIFICATE APPLICATION FORM</h2>
+        <form>
+            <fieldset>
+                <legend>Fill the Blanks Using Capital Letters</legend>
+                <label>Date of Death: <input type="date" name="date_of_death"></label><br>
+                <label>Gender: 
+                    <select name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </label><br>
+                <label>Deceased Name: <input type="text" name="deceased_name"></label><br>
+                <label>Care of: 
+                    <input type="radio" name="care_of" value="father"> Father
+                    <input type="radio" name="care_of" value="husband"> Husband
+                </label><br>
+                <label>Father/ Husband Name: <input type="text" name="father_husband_name"></label><br>
+                <label>Deceased Age (In Years): <input type="text" name="deceased_age_years"></label>
+                <label>Age (In Months): <input type="text" name="deceased_age_months"></label>
+                <label>Age (In Days): <input type="text" name="deceased_age_days"></label>
+                <label>Age (In Hours): <input type="text" name="deceased_age_hours"></label><br>
+
+                <h3>Permanent Address</h3>
+                <label>Address Line: <input type="text" name="address_line"></label><br>
+                <label>Country: <input type="text" name="country"></label>
+                <label>State: <input type="text" name="state"></label>
+                <label>District: <input type="text" name="district"></label><br>
+                <label>Pin: <input type="text" name="pin"></label>
+                <label>Mobile No: <input type="text" name="mobile_no"></label>
+                <label>Email ID: <input type="email" name="email"></label><br>
+
+                <h3>Place of Death</h3>
+                <label>
+                    <input type="radio" name="place_of_death" value="house"> House
+                    <input type="radio" name="place_of_death" value="hospital"> Hospital
+                </label><br>
+                <label>Place of Death: <input type="text" name="place_of_death"></label><br>
+                <label>Address Line: <input type="text" name="death_address_line"></label><br>
+                <label>Country: <input type="text" name="death_country"></label>
+                <label>State: <input type="text" name="death_state"></label>
+                <label>District: <input type="text" name="death_district"></label><br>
+                <label>Pin: <input type="text" name="death_pin"></label><br>
+
+                <h3>Informant / Applicant Name and Address</h3>
+                <label>Name: <input type="text" name="informant_name"></label><br>
+                <label>Sex: 
+                    <input type="radio" name="informant_sex" value="male"> Male
+                    <input type="radio" name="informant_sex" value="female"> Female
+                </label><br>
+                <label>Same as Permanent Address: 
+                    <input type="checkbox" name="same_as_permanent_address">
+                </label><br>
+                <label>Relation with the Deceased: <input type="text" name="relation_with_deceased"></label><br>
+                <label>Identity Proof Submitted: <input type="text" name="identity_proof"></label><br>
+            </fieldset>
+
+            <!-- Add Choose File and Send OTP Buttons -->
+            <div class="bottom-right-buttons">
+                <label for="file-upload" class="custom-file-upload">Choose File</label>
+                <input type="file" id="file-upload" name="file_upload" style="display: none;">
+                <button type="button" class="otp-button">Send OTP</button>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caste Certificate Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"], button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button {
+            background-color: #007bff;
+            margin-left: 10px;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Caste Certificate Application Form</h1>
+        <form id="casteForm">
+            <div class="form-group">
+                <label for="name">Name (in Block Letters):</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="occupation">Occupation of Applicant:</label>
+                <input type="text" id="occupation" name="occupation">
+            </div>
+
+            <div class="form-group">
+                <label for="residence">Residence Address:</label>
+                <textarea id="residence" name="residence" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="permanent">Permanent Address:</label>
+                <textarea id="permanent" name="permanent" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone No. (OTP verification):</label>
+                <input type="text" id="phone" name="phone" maxlength="10" required>
+                <button type="button" onclick="sendOTP()">Send OTP</button>
+                <input type="text" id="otp" name="otp" placeholder="Enter OTP" style="display:none;">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <h2>Caste Details</h2>
+
+            <div class="form-group">
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fatherOccupation">Father's Occupation:</label>
+                <input type="text" id="fatherOccupation" name="fatherOccupation">
+            </div>
+
+            <div class="form-group">
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="motherOccupation">Mother's Occupation:</label>
+                <input type="text" id="motherOccupation" name="motherOccupation">
+            </div>
+
+            <div class="form-group">
+                <label for="caste">Caste:</label>
+                <input type="text" id="caste" name="caste" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subCaste">Sub-caste:</label>
+                <input type="text" id="subCaste" name="subCaste">
+            </div>
+
+            <div class="form-group">
+                <label for="religion">Religion:</label>
+                <input type="text" id="religion" name="religion" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" name="nationality" required>
+            </div>
+
+            <h2>Documents Required</h2>
+
+<div class="form-group">
+    <label for="rationCard">Ration Card:</label>
+    <input type="file" id="rationCard" name="rationCard" accept=".pdf,.jpg,.jpeg,.png" required>
+</div>
+
+<div class="form-group">
+    <label for="aadharApplicant">Aadhar Card of Applicant:</label>
+    <input type="file" id="aadharApplicant" name="aadharApplicant" accept=".pdf,.jpg,.jpeg,.png" required>
+</div>
+
+<div class="form-group">
+    <label for="aadharParents">Aadhar Card of Father/Mother:</label>
+    <input type="file" id="aadharParents" name="aadharParents" accept=".pdf,.jpg,.jpeg,.png" required>
+</div>
+
+<div class="form-group">
+    <label for="voterPan">Voter Card/PAN Card:</label>
+    <input type="file" id="voterPan" name="voterPan" accept=".pdf,.jpg,.jpeg,.png">
+</div>
+
+<div class="form-group">
+    <label for="incomeCert">Income Certificate:</label>
+    <input type="file" id="incomeCert" name="incomeCert" accept=".pdf,.jpg,.jpeg,.png" required>
+</div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit Application">
+
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function sendOTP() {
+            let phone = document.getElementById("phone").value;
+            if (phone.length === 10) {
+                alert("OTP sent to " + phone);
+                document.getElementById("otp").style.display = "block";
+            } else {
+                alert("Please enter a valid 10-digit phone number.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Certificate Application Form</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set the body to fit the viewport */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            overflow: hidden; /* Prevent body from scrolling */
+        }
+
+        /* Container for the form with a max height */
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh; /* Restrict max height to allow scrolling */
+            overflow-y: auto; /* Enable vertical scroll if content exceeds max height */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Basic styling for form labels and inputs */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Styling for file input */
+        .file-input {
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        /* OTP display styling */
+        .otp-display {
+            font-size: 1em;
+            color: green;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Income Certificate Application Form</h2>
+    <form>
+        <div class="form-group">
+            <label for="fullName">Full Name of Applicant</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <!-- Phone Number and OTP Generation Section -->
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10}" placeholder="Enter your 10-digit phone number">
+        </div>
+        <button type="button" onclick="generateOTP()">Generate OTP</button>
+        <div id="otpDisplay" class="otp-display"></div>
+
+        <!-- Additional form fields -->
+        <div class="form-group">
+            <label for="fatherName">Father’s Name</label>
+            <input type="text" id="fatherName" name="fatherName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="motherName">Mother’s Name</label>
+            <input type="text" id="motherName" name="motherName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="residence">Residence Details</label>
+            <textarea id="residence" name="residence" rows="2" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="totalFamilyIncome">Total Family Income</label>
+            <input type="number" id="totalFamilyIncome" name="totalFamilyIncome" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="sourcesOfIncome">Sources of Income</label>
+            <textarea id="sourcesOfIncome" name="sourcesOfIncome" rows="2" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="earningMembers">Earning Members in Family</label>
+            <select id="earningMembers" name="earningMembers" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="reasonForApplying">Reason for Applying</label>
+            <textarea id="reasonForApplying" name="reasonForApplying" rows="2" required></textarea>
+        </div>
+
+        <!-- Document upload fields -->
+        <div class="file-input">
+            <label for="proofOfIncome">Proof of Income (Salary slip or bank statement):</label>
+            <input type="file" id="proofOfIncome" name="proofOfIncome" required>
+        </div>
+
+        <div class="file-input">
+            <label for="form16">Form 16 or ITR (for Government employees):</label>
+            <input type="file" id="form16" name="form16">
+        </div>
+
+        <div class="file-input">
+            <label for="idProof">ID Proof (Aadhar, Voter ID, or Driving License):</label>
+            <input type="file" id="idProof" name="idProof" required>
+        </div>
+
+        <div class="file-input">
+            <label for="addressProof">Address Proof (Bank passbook, ration card, or passport):</label>
+            <input type="file" id="addressProof" name="addressProof" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+    </form>
+</div>
+
+<script>
+    function generateOTP() {
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const otpDisplay = document.getElementById('otpDisplay');
+
+        // Check if phone number is valid
+        if (phoneNumber.length !== 10 || !/^\d{10}$/.test(phoneNumber)) {
+            alert("Please enter a valid 10-digit phone number.");
+            return;
+        }
+
+        // Generate a random 6-digit OTP
+        const otp = Math.floor(100000 + Math.random() * 900000);
+
+        // Display the OTP
+        otpDisplay.textContent = 'Your OTP is: ${otp}';
+    }
+</script>
+
+</body>
+</html>
